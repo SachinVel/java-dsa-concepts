@@ -51,16 +51,16 @@ public class DisjointSetImpl{
 			for( int col=0 ; col<totalCol ; ++col ) {
 				if( arr[row][col]==1 ) {
 					if( (row-1)>=0  && arr[row-1][col]==1 ) {
-						disjointSet.union((row*totalRow)+col, (row-1)*totalRow+col);
+						disjointSet.union((row*totalCol)+col, (row-1)*totalRow+col);
 					}
 					if( (row+1)<totalRow && arr[row+1][col]==1 ) {
-						disjointSet.union((row*totalRow)+col, (row+1)*totalRow+col);
+						disjointSet.union((row*totalCol)+col, (row+1)*totalRow+col);
 					}
 					if( (col-1)>=0 && arr[row][col-1]==1 ) {
-						disjointSet.union((row*totalRow)+col, (row)*totalRow+(col-1));
+						disjointSet.union((row*totalCol)+col, (row)*totalRow+(col-1));
 					}
 					if( (col+1)<totalCol && arr[row][col+1]==1 ) {
-						disjointSet.union((row*totalRow)+col, (row)*totalRow+(col+1));
+						disjointSet.union((row*totalCol)+col, (row)*totalRow+(col+1));
 					}
 				}
 			}	
@@ -81,6 +81,7 @@ public class DisjointSetImpl{
 		
 		return numIslands;
 	}
+	
 	public static void main(String[] args) {
 		int[][] a = new int[][] {
 			{1, 1, 0, 0, 0}, 

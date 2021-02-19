@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
+import trial.Try.Node;
+
 public class Tree {
 	
 	static class Node{
@@ -89,6 +91,17 @@ public class Tree {
 		
 		return Math.max(findHeightUsingTraversal(leftSubtree, levelOrder),findHeightUsingTraversal(rightSubTree, leveOrderDuplicate))+1;
 		
+	}
+	
+	public static boolean validateBST(Node head,int minVal, int maxVal) {
+		if( head==null ) {
+			return true;
+		}
+		if( head.data>maxVal || head.data<minVal ) {
+			return false;
+		}
+			
+		return validateBST(head.left, minVal, head.data)&&validateBST(head.right, head.data, maxVal);
 	}
 	
 	

@@ -26,6 +26,7 @@ public class InterfaceExample {
 		functionalInterface funImpl = (sideLen)->{
 			return sideLen*sideLen;
 		};
+		
 
 		//Method reference
 		functionalInterface funImpl2 = MethodReferenceClass::someMethod;

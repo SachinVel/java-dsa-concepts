@@ -1,5 +1,12 @@
 package dynamicprogramming;
 
+
+/* 
+ * question - https://leetcode.com/problems/longest-palindromic-substring 
+ * 
+ */
+
+
 public class LargestPalindromicSubsequence {
 	
 	public static int findPalindromicSubsequence(String str) {
@@ -41,7 +48,7 @@ public class LargestPalindromicSubsequence {
 	}
 	
 	public static void main(String[] args) {
-		String str = "geeksforgeeks";
+		String str = "geeks";
 		System.out.println(findPalindromicSubsequence(str));
 	}
 }

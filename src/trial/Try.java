@@ -2,36 +2,45 @@ package trial;
 
 import java.util.Scanner;
 
+import util.ConceptUtil;
+
 public class Try {
 	
-	
+	public static void sortTwoArrays(int arr1[],int arr2[]) {
+		int ptr1=0,ptr2=0;
+		
+		if(arr1.length==0 || arr2.length==0 ) {
+			return;
+		}
+		
+		while( ptr1<arr1.length ) {
+			if( arr1[ptr1]<=arr2[0] ) {
+				++ptr1;
+			}else {
+				int temp = arr1[ptr1];
+				arr1[ptr1] = arr2[0];
+				ptr2=0;
+				while( ptr2+1<arr2.length && arr2[ptr2+1]<temp) {
+					arr2[ptr2] = arr2[ptr2+1];
+					++ptr2;
+				}
+				arr2[ptr2] = temp;
+				++ptr1;
+				System.out.println("replaced : "+temp);
+				ConceptUtil.print1dArray(arr2);
+			}
+		}
+		
+	}
 	
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
-
-        for( int case=1 ; case<=t ; ++case ){
-            int n = sc.nextInt();
-            int k = sc.nextInt();
-            int arr[] = new int[n];
-            int res[] = new int[n];
-            int resInd;
-            for( int ind=0 ; ind<n ; ++ind ){
-
-                arr[ind]. sc.nextInt();
-                resInd = ind+k;
-                if( resInd>=n ){
-                    resInd %= n;
-                }
-                res[resInd] = arr[ind];
-            }
-            for( int ind=0 ; ind<n ; ++ind ){
-                System.out.print(res[ind]+" ");
-            }
-            System.out.println();
+		int arr1[] = {1,5,9,10,15,20};
+		int arr2[] = {2,3,8,13};
+		
+		sortTwoArrays(arr1, arr2);
         
-        }
-
+		ConceptUtil.print1dArray(arr1);
+		ConceptUtil.print1dArray(arr2);
 		
 	}	
 }

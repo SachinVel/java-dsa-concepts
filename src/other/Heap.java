@@ -1,5 +1,7 @@
 package other;
 
+import java.util.Arrays;
+
 public class Heap {
 	
 	static class MinHeap{
@@ -17,14 +19,37 @@ public class Heap {
 			}
 			return false;
 		}
+		
+		private void swap(int pos1, int pos2) {
+			int temp = heap[pos1];
+			heap[pos1] = heap[pos2];
+			heap[pos2] = temp;
+		}
 		public void minHeapify(int pos) {
 			
 			if( !isLeafNode(pos) ) {
-				if( heap[pos]>heap[2*pos] || heap[pos]>heap[pos*2+1] ) {
-					
+				int leftChild = getLeftChild(pos);
+				int rightChild = getRightChild(pos);
+				if( heap[pos]>heap[leftChild] || heap[pos]>heap[rightChild] ) {
+					if( heap[leftChild]<heap[rightChild] ) {
+						swap(pos,leftChild);
+						pos = leftChild;
+					}else {
+						swap(pos,rightChild);
+						pos = rightChild;
+					}
+					minHeapify(pos);
 				}
 			}
 			
+		}
+		
+		private int getLeftChild(int pos) {
+			return 2*pos;
+		}
+		
+		private int getRightChild(int pos) {
+			return 2*pos+1;
 		}
 		
 		public int getParent(int child) {
@@ -61,9 +86,26 @@ public class Heap {
 			return min;
 		}
 		
+		public void printHeap() {
+			System.out.println(Arrays.toString(heap));
+		}
+		
 	}
 	
 	public static void main(String[] args) {
-		int arr[] = {};
+		int arr[] = {1,4,5,7,3,9,10};
+		
+		MinHeap minHeap = new MinHeap(arr.length);
+		for( int num : arr ) {
+			minHeap.insert(num);
+		}
+		
+		minHeap.printHeap();
+		
+		System.out.println(minHeap.extractMin());
+		
+		minHeap.printHeap();
+		
+		System.out.println(minHeap.extractMin());
 	}
 }

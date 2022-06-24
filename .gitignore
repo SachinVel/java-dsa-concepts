@@ -3,3 +3,5 @@ out/
 java-dsa-concepts.iml
 .idea/
 src/trial
+.classpath
+.project

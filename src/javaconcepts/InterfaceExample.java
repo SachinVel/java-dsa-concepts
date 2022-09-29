@@ -33,6 +33,6 @@ public class InterfaceExample {
 		
 		System.out.println("lambda : "+funImpl.squareArea(10));
 		
-		System.out.println("method reference : "+funImpl.squareArea(10));
+		System.out.println("method reference : "+funImpl2.squareArea(10));
 	}
 }

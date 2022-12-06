@@ -14,6 +14,7 @@ Output : 6 (2*3)
 public class SubseqMaxProd {
 	
 	public static int findSubsequenceProduct(int arr[],int k) {
+
 		int product=1;
 		int n =arr.length;
 		if( k>n ) {

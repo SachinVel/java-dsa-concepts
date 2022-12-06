@@ -2,8 +2,9 @@ package util;
 
 public class ConceptUtil {
 	public static void print2dArray(int arr[][] ) {
+
 		for( int rowInd=0 ; rowInd<arr.length ; ++rowInd ) {
-			for( int colInd=0 ; colInd<arr[0].length ; ++colInd ) {
+			for( int colInd=0 ; colInd<arr[rowInd].length ; ++colInd ) {
 				System.out.print(arr[rowInd][colInd]+" ");
 			}
 			System.out.println();

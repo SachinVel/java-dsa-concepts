@@ -18,9 +18,9 @@ public class CountSetBits {
 		return setBits;
 	}
 	public static void main(String[] args) {
+
 		int n = -3;
-		
 		System.out.println(countSetBits(n));
-		
+
 	}
 }
